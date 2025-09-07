@@ -1,0 +1,95 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Mechanism Design with Approximate Incentive Compatibility
+
+Verbal Description:
+Classical mechanism design assumes buyers are perfect optimizers who can always find their optimal response to any mechanism. However, in practice, buyers may have computational limitations or incomplete information. Approximate incentive compatibility (ε-IC) relaxes the standard incentive compatibility constraint, allowing for small deviations from optimal behavior while studying how much additional revenue can be extracted.
+
+Mathematical Formulation:
+
+Basic Setup:
+- One seller, one buyer
+- Buyer's private valuation: v ~ F on [0,1] with density f
+- Buyer's utility: u = v·x - p (x = allocation probability, p = payment)
+
+Standard Incentive Compatibility:
+For mechanism (x(·), p(·)), buyer type v should prefer reporting v over any other report v':
+v·x(v) - p(v) ≥ v·x(v') - p(v') for all v, v'
+
+ε-Incentive Compatibility:
+Mechanism is ε-IC if for all types v and reports v':
+v·x(v) - p(v) ≥ v·x(v') - p(v') - ε
+
+Revenue Function Analysis:
+Let R(p) be seller's revenue from posted price p
+Local curvature: R(p) behaves like α-power function near optimal price p*
+R(p) ≈ R(p*) - c|p - p*|^α for α ∈ (1,∞)
+
+Main Theoretical Results:
+
+Upper Bound on Revenue Gains:
+No ε-IC mechanism can achieve revenue gains higher than order ε^(α/(2α-1))
+
+Optimal Mechanism Structure:
+For ε > 0, optimal mechanism must randomize
+- Deterministic mechanisms suboptimal when ε > 0
+- Phase transition from deterministic (ε = 0) to randomized (ε > 0)
+
+Revenue Gains Formula:
+Additional revenue ≤ O(ε^(α/(2α-1)))
+
+This improves previous bounds of O(ε^(1/2)) by incorporating revenue function curvature
+
+Mechanism Design Framework:
+Optimization over three dimensions:
+1. Allocation rules: x(v)
+2. Payment rules: p(v)  
+3. Best response functions: which type reports which value
+
+Linear Programming Formulation:
+max ∫ p(v) dF(v)
+subject to:
+- ε-IC constraints: u(v,v) ≥ u(v,v') - ε for all v,v'
+- Individual rationality: u(v,v) ≥ 0 for all v
+- Feasibility: 0 ≤ x(v) ≤ 1 for all v
+
+where u(v,v') = v·x(v') - p(v') is utility of type v reporting v'
+
+Bayesian Implementation:
+Mechanism (M₁,...,Mₙ, φ) implements social choice function F in Bayesian equilibrium if:
+∃ strategies sᵢ: Dᵢ → Mᵢ such that
+1. (s₁,...,sₙ) is Bayesian equilibrium
+2. φᵢ(s₁(u₁),...,sₙ(uₙ)) = Fᵢ(u₁,...,uₙ) for all i and u
+
+Revelation Principle for ε-IC:
+If mechanism implements F under ε-IC, then direct mechanism F is ε-IC
+
+Dominant Strategy vs Bayesian IC:
+- DSIC: Truth-telling optimal regardless of others' strategies
+- BIC: Truth-telling optimal given others play truthfully
+- ε-DSIC ⟹ ε-BIC but not vice versa
+
+Example - First Price Auction:
+Standard: Bid bᵢ*(vᵢ) = ((n-1)/n)vᵢ
+Under ε-IC: Bidders may deviate by up to ε from optimal bidding
+Revenue implications: Additional revenue of order ε^(α/(2α-1))
+
+Mathematical Properties:
+- Infinite dimensional optimization problem
+- Convex constraints when restricted to IC mechanisms
+- Non-convex when optimizing over best responses
+- Duality methods applicable with care
+
+Applications:
+- Online advertising auctions with bounded rationality
+- Procurement mechanisms with computational constraints
+- Market design with behavioral agents
+- Algorithmic mechanism design
+
+References:
+- Balseiro, Besbes, Castro: Operations Research (2022)
+- arXiv preprint (2021): Mechanism Design under Approximate IC
+- ISI Delhi: Theory of Mechanism Design notes
+
+Game Type: Bayesian game with incomplete information and bounded rationality
+Solution Concepts: ε-Incentive Compatibility, Bayesian Nash Equilibrium, Revenue Maximization

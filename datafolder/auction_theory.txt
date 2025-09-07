@@ -1,0 +1,60 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: First-Price Sealed-Bid Auction
+
+Verbal Description:
+There are n bidders competing for a single object. Each bidder i has a private valuation vᵢ drawn from a uniform distribution on [0,1]. Bidders simultaneously submit sealed bids. The highest bidder wins and pays their bid.
+
+Mathematical Formulation:
+
+Players: N = {1, 2, ..., n}
+
+Private Information: 
+vᵢ ~ U[0,1] independently for each i ∈ N
+
+Strategy Space: 
+Bᵢ: [0,1] → ℝ₊ (bid function mapping valuations to bids)
+
+Allocation Rule:
+Winner: i* = arg max{b₁, b₂, ..., bₙ} (highest bidder wins)
+Payment: pᵢ* = bᵢ* (winner pays their bid)
+
+Payoff Functions:
+For winner i*: uᵢ*(vᵢ*, bᵢ*) = vᵢ* - bᵢ*
+For losers j ≠ i*: uⱼ(vⱼ, bⱼ) = 0
+
+Bayesian Nash Equilibrium:
+
+Symmetric Equilibrium Bid Function:
+bᵢ*(vᵢ) = ((n-1)/n) × vᵢ
+
+Derivation:
+Let all other players follow strategy b*(v) = αv
+Player i's probability of winning: P(win|vᵢ, bᵢ) = P(vⱼ < bᵢ/α for all j ≠ i)
+= (bᵢ/α)^(n-1) if bᵢ/α ≤ 1
+
+Expected utility: E[uᵢ|vᵢ, bᵢ] = (vᵢ - bᵢ) × (bᵢ/α)^(n-1)
+
+First-order condition: ∂E[uᵢ]/∂bᵢ = 0
+-(bᵢ/α)^(n-1) + (vᵢ - bᵢ) × (n-1) × (bᵢ/α)^(n-2) × (1/α) = 0
+
+Solving: bᵢ = ((n-1)/n) × vᵢ
+Therefore: α = (n-1)/n
+
+Equilibrium Properties:
+- Probability of winning: P(win|vᵢ) = vᵢ^(n-1)
+- Expected utility: E[uᵢ|vᵢ] = vᵢ^n/n
+- Expected payment by winner: E[payment|win] = (n-1)/(n+1)
+- Expected revenue: E[Revenue] = (n-1)/(n+1)
+
+Revenue Equivalence:
+Expected revenue = E[max{v₁, v₂, ..., vₙ}] = n/(n+1)
+
+Mathematical Properties:
+- Bayesian game with incomplete information
+- Private values model
+- Symmetric information structure
+- Risk neutral bidders
+
+Game Type: Bayesian game with incomplete information
+Solution Concepts: Bayesian Nash Equilibrium, Revenue Equivalence, Optimal Bidding Strategy

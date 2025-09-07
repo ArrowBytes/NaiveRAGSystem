@@ -1,0 +1,36 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Classic Prisoner's Dilemma
+
+Verbal Description:
+Two suspects are arrested and held in separate cells. Each can either confess (defect) or remain silent (cooperate). If both cooperate, they each get 1 year in prison. If both defect, they each get 3 years. If one cooperates and one defects, the cooperator gets 5 years and the defector goes free.
+
+Mathematical Formulation:
+
+Players: N = {1, 2}
+
+Strategy Sets: 
+S₁ = S₂ = {Cooperate, Defect}
+
+Payoff Matrix for Player 1 (Player 2 payoffs symmetric):
+                Player 2
+               C    D
+Player 1  C  [-1]  [-5]
+          D  [0]   [-3]
+
+Utility Functions:
+u₁(C,C) = -1, u₁(C,D) = -5, u₁(D,C) = 0, u₁(D,D) = -3
+u₂(C,C) = -1, u₂(C,D) = 0, u₂(D,C) = -5, u₂(D,D) = -3
+
+Game Analysis:
+Nash Equilibrium: (Defect, Defect) with payoffs (-3, -3)
+Pareto Optimal: (Cooperate, Cooperate) with payoffs (-1, -1)
+Dominant Strategy: Defection is strictly dominant for both players
+
+Mathematical Properties:
+- Non-zero-sum game: ∑ᵢ uᵢ(s) ≠ constant
+- Symmetric game: Player roles are interchangeable
+- Social dilemma: Individual rationality leads to collective irrationality
+
+Game Type: Two-player non-zero-sum simultaneous game
+Solution Concepts: Nash Equilibrium, Pareto Optimality, Dominant Strategy

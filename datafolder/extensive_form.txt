@@ -1,0 +1,84 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Sequential Entry Game
+
+Verbal Description:
+An incumbent firm (Player 1) first decides whether to set High or Low prices. Then an entrant (Player 2) observes this choice and decides whether to Enter or Stay Out of the market. If the entrant stays out, the incumbent gets monopoly profits. If the entrant enters, both firms compete.
+
+Mathematical Formulation:
+
+Players: N = {Incumbent, Entrant} = {1, 2}
+
+Game Tree Structure:
+                    Incumbent (t=1)
+                   /              \\
+               High              Low
+               /                  \\
+          Entrant (t=2)        Entrant (t=2)  
+         /            \\       /            \\
+     Enter        Stay Out  Enter        Stay Out
+     /    \\         |      /    \\         |
+   (1,0)  (5,-1)   (6,0)  (-1,1)  (3,0)
+
+Information Structure:
+- Perfect information: All previous moves observed
+- Sequential moves: Player 1 moves first, then Player 2
+
+Strategy Sets:
+Player 1 (Incumbent): S₁ = {High, Low}
+
+Player 2 (Entrant): S₂ = {Enter after High & Enter after Low,
+                          Enter after High & Stay Out after Low,
+                          Stay Out after High & Enter after Low,
+                          Stay Out after High & Stay Out after Low}
+
+Notation: S₂ = {(E,E), (E,S), (S,E), (S,S)}
+
+Payoff Function:
+u₁(High, Enter after High) = 1
+u₁(High, Stay Out after High) = 6
+u₁(Low, Enter after Low) = -1
+u₁(Low, Stay Out after Low) = 3
+
+u₂(High, Enter after High) = 0
+u₂(High, Stay Out after High) = 0
+u₂(Low, Enter after Low) = 1
+u₂(Low, Stay Out after Low) = 0
+
+Backward Induction Solution:
+
+Stage 2 Analysis:
+After High: Entrant compares Enter (payoff 0) vs Stay Out (payoff 0)
+Player 2 is indifferent, assume chooses Stay Out
+
+After Low: Entrant compares Enter (payoff 1) vs Stay Out (payoff 0)
+Player 2 optimally chooses Enter
+
+Stage 1 Analysis:
+Incumbent anticipates Player 2's optimal responses:
+- If High → Stay Out, payoff = 6
+- If Low → Enter, payoff = -1
+
+Incumbent optimally chooses High
+
+Subgame Perfect Nash Equilibrium:
+Strategy profile: (High, Stay Out after High & Enter after Low)
+Equilibrium path: High → Stay Out
+Payoffs: (6, 0)
+
+Alternative Representation:
+Let h ∈ {High, Low} be history after Player 1's move
+Player 2's strategy: σ₂(h) ∈ {Enter, Stay Out}
+
+Optimal strategy: σ₂*(High) = Stay Out, σ₂*(Low) = Enter
+Player 1's optimal response: σ₁* = High
+
+Mathematical Properties:
+- Finite extensive form game
+- Perfect information
+- Complete information
+- Unique subgame perfect equilibrium
+- First-mover advantage
+
+Game Type: Sequential game with perfect information
+Solution Concepts: Backward Induction, Subgame Perfect Nash Equilibrium, Perfect Information

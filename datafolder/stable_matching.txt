@@ -1,0 +1,148 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Stable Matching and Gale-Shapley Algorithm
+
+Verbal Description:
+The stable matching problem involves pairing equal numbers of participants from two groups (traditionally men and women, or more generally, hospitals and residents) based on their preferences. The goal is to find a matching where no pair of participants would prefer each other over their assigned partners. The Gale-Shapley algorithm provides a systematic way to find such stable matchings.
+
+Mathematical Formulation:
+
+Basic Setup:
+- Two finite sets: M = {m₁, m₂, ..., mₙ} and W = {w₁, w₂, ..., wₙ}
+- Each m ∈ M has strict preference ordering ≻ₘ over W
+- Each w ∈ W has strict preference ordering ≻w over M
+
+Matching Definition:
+A matching μ is a bijection μ: M ∪ W → M ∪ W such that:
+1. For all m ∈ M, μ(m) ∈ W and μ(μ(m)) = m
+2. For all w ∈ W, μ(w) ∈ M and μ(μ(w)) = w
+
+Stability Definition:
+A matching μ is unstable if ∃ (m,w) such that:
+1. w ≻ₓ μ(m) (m prefers w to current partner)
+2. m ≻w μ(w) (w prefers m to current partner)
+
+Such pair (m,w) is called a blocking pair.
+A matching is stable if no blocking pairs exist.
+
+Gale-Shapley Algorithm (Men-Proposing):
+
+Initialize: All participants unmatched
+
+While ∃ unmatched man m:
+    1. m proposes to highest-ranked woman w on his list who hasn't rejected him
+    2. If w is unmatched: tentatively match (m,w)
+    3. If w is matched to m': 
+       - If m ≻w m': replace match, m' becomes unmatched
+       - If m' ≻w m: w rejects m
+    4. Continue until all matched
+
+Algorithm Properties:
+
+Theorem (Gale-Shapley 1962):
+1. Algorithm always terminates with stable matching
+2. Proposing side gets optimal stable matching
+3. Receiving side gets worst stable matching
+4. Time complexity: O(n²)
+
+Mathematical Analysis:
+
+Lattice Structure:
+Let S be set of all stable matchings for instance I
+Then (S, ≤ₘ) forms a distributive lattice where:
+- μ ≤ₘ μ' if all men weakly prefer μ to μ'
+- Maximum element: man-optimal stable matching
+- Minimum element: woman-optimal stable matching
+
+Rural Hospital Theorem:
+In any stable matching:
+1. Same set of participants remain unmatched
+2. Each participant matched to same number of partners
+
+Counting Stable Matchings:
+- Average number in random instance: O(e⁻¹n ln n)
+- Maximum possible: exponential in n
+- Counting problem is #P-complete
+
+Strategic Aspects:
+
+Strategy-Proofness:
+- Proposing side has no incentive to misrepresent preferences
+- Receiving side may benefit from strategic behavior
+
+Theorem (Dubins-Freedman 1981):
+No stable matching mechanism is strategy-proof for both sides
+
+Mechanism Design Interpretation:
+- Direct mechanism: preference revelation
+- Outcome function: Gale-Shapley algorithm
+- Individual rationality: prefer assignment to being unmatched
+- Incentive compatibility: truthful for proposers only
+
+Extensions and Variations:
+
+Many-to-One Matching (Hospital-Resident):
+- Hospitals have capacity constraints qₕ
+- Residents matched to at most one hospital
+- Stability: no resident-hospital pair blocks
+
+College Admissions Model:
+- Colleges have capacity and preferences over students
+- Students have preferences over colleges
+- Deferred acceptance algorithm applies
+
+Matching with Couples:
+- Some participants form couples with joint preferences
+- Stable matching may not exist
+- Complexity increases significantly
+
+School Choice Applications:
+- Boston mechanism (immediate acceptance): not strategy-proof
+- Deferred acceptance: strategy-proof for students
+- Top Trading Cycles: Pareto efficient but not stable
+
+Mathematical Properties:
+
+Preference Profiles:
+P = (≻ₘ₁, ≻ₘ₂, ..., ≻ₘₙ, ≻w₁, ≻w₂, ..., ≻wₙ)
+
+Core of Matching Game:
+Stable matchings correspond to core allocations in associated cooperative game
+
+Linear Programming Relaxation:
+Fractional matching problem:
+max ∑ᵢⱼ uᵢⱼxᵢⱼ
+subject to:
+∑ⱼ xᵢⱼ ≤ 1 for all i
+∑ᵢ xᵢⱼ ≤ 1 for all j
+xᵢⱼ ≥ 0 for all i,j
+
+Integral solutions correspond to stable matchings
+
+Algorithm Variants:
+
+Random Serial Dictatorship:
+- Order participants randomly
+- Each chooses best available option
+- Not stable but strategy-proof
+
+Top Trading Cycles:
+- For indivisible goods assignment
+- Pareto efficient and strategy-proof
+- Different from stable matching
+
+Applications:
+- Medical residency matching (NRMP)
+- School choice systems
+- Kidney exchange programs
+- Online dating platforms
+- Military academy assignments
+
+References:
+- Gale & Shapley: American Mathematical Monthly (1962)
+- Wikipedia: Gale-Shapley algorithm (2010)
+- Number Analytics: Stable matching strategies (2025)
+- GeeksforGeeks: Stable Marriage Problem (2013)
+
+Game Type: Cooperative matching game with transferable utility
+Solution Concepts: Stable Matching, Core, Strategy-Proofness, Pareto Efficiency

@@ -1,0 +1,71 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Evolutionary Game Theory - Replicator Dynamics
+
+Verbal Description:
+In evolutionary game theory, populations of agents adopt different strategies and their success determines how their representation in the population changes over time. The replicator equation models how the frequency of strategies in a population changes, where strategies with higher-than-average fitness increase in frequency while less successful strategies decline.
+
+Mathematical Formulation:
+
+Population Model:
+- N strategies in population: {1, 2, ..., n}
+- xᵢ(t) = proportion of population using strategy i at time t
+- Constraint: Σᵢ xᵢ(t) = 1, xᵢ(t) ≥ 0 for all i
+
+Fitness Functions:
+- fᵢ(x) = fitness of strategy i when population state is x
+- φ(x) = Σⱼ xⱼfⱼ(x) = average population fitness
+
+The Replicator Equation:
+ẋᵢ = xᵢ[fᵢ(x) - φ(x)]
+
+where ẋᵢ = dxᵢ/dt
+
+Interpretation:
+Growth rate of strategy i = (fitness of strategy i) - (average fitness)
+
+For Symmetric 2×2 Games:
+Consider payoff matrix A = [[a₁₁, a₁₂], [a₂₁, a₂₂]]
+
+If x is proportion playing strategy 1:
+- f₁(x) = a₁₁x + a₁₂(1-x)
+- f₂(x) = a₂₁x + a₂₂(1-x)
+- φ(x) = xf₁(x) + (1-x)f₂(x)
+
+Replicator equation becomes:
+ẋ = x(1-x)[f₁(x) - f₂(x)]
+ẋ = x(1-x)[(a₁₁ - a₂₁ - a₁₂ + a₂₂)x + (a₁₂ - a₂₂)]
+
+Equilibrium Points:
+1. Boundary equilibria: x* = 0, x* = 1
+2. Interior equilibrium: x* = (a₂₂ - a₁₂)/(a₁₁ - a₁₂ - a₂₁ + a₂₂) if exists
+
+Evolutionary Stable Strategy (ESS):
+Strategy s* is ESS if for all s ≠ s*:
+1. u(s*, s*) ≥ u(s, s*) (Nash condition)
+2. If u(s*, s*) = u(s, s*), then u(s*, s) > u(s, s) (stability condition)
+
+Properties:
+- ESS is dynamically stable under replicator dynamics
+- If x* is interior equilibrium, it is stable iff (a₁₁ - a₂₁) + (a₂₂ - a₁₂) < 0
+- Replicator equation preserves Nash equilibria
+- Non-innovative: no new strategies introduced during evolution
+
+Applications:
+- Biology: Natural selection and evolutionary stability
+- Economics: Learning dynamics and bounded rationality
+- Social sciences: Cultural evolution and norm emergence
+
+Mathematical Properties:
+- Deterministic dynamical system
+- Monotone selection dynamic
+- Volume preserving in simplex interior
+- Satisfies folk theorem of evolutionary game theory
+
+References:
+- Wikipedia: Replicator equation (2004)
+- PNAS: The replicator equation and other game dynamics (2014)
+- Physical Review E: Evolutionary dynamics of delayed replicator-mutator equation (2020)
+
+Game Type: Evolutionary game with population dynamics
+Solution Concepts: Evolutionary Stable Strategy, Dynamic Stability, Replicator Dynamics

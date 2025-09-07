@@ -1,0 +1,93 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Market for Lemons - Quality Uncertainty
+
+Verbal Description:
+A seller has a car that is either High quality (value 100 to seller, 120 to buyer) or Low quality (value 50 to seller, 60 to buyer) with equal probability. Only the seller knows the quality. The seller can set a price, and the buyer decides whether to buy.
+
+Mathematical Formulation:
+
+Players: N = {Seller, Buyer} = {S, B}
+
+Type Spaces:
+Θₛ = {High, Low} (Seller's private information about car quality)
+Θᵦ = {∅} (Buyer has no private information)
+
+Prior Beliefs:
+P(θₛ = High) = P(θₛ = Low) = 1/2
+
+Valuations:
+Seller's cost: c(High) = 100, c(Low) = 50
+Buyer's value: v(High) = 120, v(Low) = 60
+
+Strategy Spaces:
+Seller: pₕ, p_L ∈ ℝ₊ (price for each type)
+Buyer: d(p) ∈ {Buy, No Buy} (decision function mapping prices to actions)
+
+Payoff Functions:
+
+Seller with type θ:
+uₛ(p, Buy, θ) = p - c(θ)
+uₛ(p, No Buy, θ) = 0
+
+Buyer:
+uᵦ(p, Buy) = E[v(θ)|p, Buy] - p
+uᵦ(p, No Buy) = 0
+
+Perfect Bayesian Equilibrium:
+
+A PBE consists of:
+1. Strategy profile (σₛ, σᵦ)
+2. Belief system μ(θₛ|p) for buyer
+
+Consistency: Beliefs derived from strategies using Bayes' rule where possible
+
+Sequential Rationality: Strategies optimal given beliefs
+
+Separating Equilibrium:
+
+Strategies:
+- High type: pₕ = 100
+- Low type: p_L = 50
+- Buyer: Buy if E[v|p] ≥ p
+
+Beliefs:
+μ(High|p = 100) = 1
+μ(High|p = 50) = 0
+μ(High|p) = 1/2 for other prices (off-equilibrium)
+
+Verification:
+- High type profit: 100 - 100 = 0
+- Low type profit: 50 - 50 = 0
+- Buyer's expected value at p = 100: 120, buys since 120 > 100
+- Buyer's expected value at p = 50: 60, buys since 60 > 50
+
+Incentive Compatibility:
+High type deviation to p_L = 50 gives profit 50 - 100 = -50 < 0
+Low type deviation to pₕ = 100: Buyer expects value 120, but actual value 60
+Buyer would lose 100 - 60 = 40, so wouldn't buy
+
+Pooling Equilibrium Analysis:
+
+Both types set same price p*
+Buyer's expected value: (1/2) × 120 + (1/2) × 60 = 90
+Buyer buys if p* ≤ 90
+
+For pooling to be equilibrium:
+- High type: p* - 100 ≥ 0 → p* ≥ 100 (participation constraint)
+- Low type: p* - 50 ≥ 0 → p* ≥ 50 (participation constraint)
+- Buyer: 90 ≥ p* (willingness to pay)
+
+Contradiction: Need p* ≥ 100 and p* ≤ 90
+
+Market Breakdown:
+No pooling equilibrium exists where both types participate profitably.
+
+Mathematical Properties:
+- Adverse selection problem
+- Asymmetric information
+- Signaling through price
+- Market unraveling possible
+
+Game Type: Bayesian game with asymmetric information
+Solution Concepts: Perfect Bayesian Equilibrium, Separating Equilibrium, Pooling Equilibrium, Adverse Selection

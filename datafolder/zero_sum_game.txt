@@ -1,0 +1,58 @@
+GAME THEORY MATHEMATICAL FORMULATION
+
+Problem: Two-Player Zero-Sum Game
+
+Verbal Description:
+Two players compete where one player's gain equals the other's loss. Player A can choose from strategies {High, Low} and Player B can choose from strategies {Left, Right}. The payoff matrix shows Player A's gains (Player B's losses).
+
+Mathematical Formulation:
+
+Players: N = {A, B}
+
+Strategy Sets: 
+S_A = {High, Low}
+S_B = {Left, Right}
+
+Payoff Matrix (Player A's payoffs, Player B gets negative):
+              Player B
+             Left  Right
+Player A  H   [3]   [-1]
+          L   [-2]   [4]
+
+Matrix Representation: A = [[3, -1], [-2, 4]]
+
+Zero-Sum Property: u_A(s) + u_B(s) = 0 for all strategy profiles s
+
+Minimax Solution:
+Value of the game: V = max_i min_j A_ij = min_j max_i A_ij
+
+Mixed Strategy Nash Equilibrium:
+Let p = (p_H, p_L) be Player A's mixed strategy
+Let q = (q_L, q_R) be Player B's mixed strategy
+
+Player A's expected payoff: E[u_A] = p^T A q
+
+Equilibrium conditions:
+Player A indifferent: 3q_L - q_R = -2q_L + 4q_R
+Player B indifferent: 3p_H - 2p_L = -p_H + 4p_L
+
+Solving the system:
+p_H = 6/10 = 0.6, p_L = 4/10 = 0.4
+q_L = 5/10 = 0.5, q_R = 5/10 = 0.5
+
+Game Value: V = 1.2
+
+Linear Programming Formulation:
+max v subject to:
+∑_i p_i A_ij ≥ v for all j
+∑_i p_i = 1
+p_i ≥ 0
+
+Mathematical Properties:
+- Zero-sum: ∑ᵢ uᵢ(s) = 0
+- Constant-sum game
+- Minimax theorem applies
+- Unique value exists
+
+Game Type: Two-player zero-sum simultaneous game
+Solution Concepts: Minimax Theorem, Mixed Strategy Nash Equilibrium, Value of Game
