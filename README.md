@@ -8,15 +8,23 @@ The system ingests raw text files, splits them into chunks, generates embeddings
 
 🚀 Features
 Automated ingestion of .txt documents from a datafolder/.
+
 Splits large documents into overlapping chunks for better recall.
+
 Stores embeddings in ChromaDB for semantic retrieval.
+
 Combines retrieved context with OpenAI’s LLM to answer questions.
+
 Tailored for Game Theory explanations with a concise, expert-style response.
+
 Interactive CLI loop for asking multiple questions.
 
 
 🛠️ Tech Stack
 Python 3.10+
+
 ChromaDB – vector database
+
 OpenAI API – embeddings and completions
+
 python-dotenv – for managing environment variables
