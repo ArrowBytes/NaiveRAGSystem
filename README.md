@@ -7,6 +7,7 @@ The system ingests raw text files, splits them into chunks, generates embeddings
 
 
 🚀 Features
+
 Automated ingestion of .txt documents from a datafolder/.
 
 Splits large documents into overlapping chunks for better recall.
@@ -21,6 +22,7 @@ Interactive CLI loop for asking multiple questions.
 
 
 🛠️ Tech Stack
+
 Python 3.10+
 
 ChromaDB – vector database
